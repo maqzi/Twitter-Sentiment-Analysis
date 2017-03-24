@@ -9,8 +9,11 @@ I do not have any affiliation with any political party. This study was conducted
 
 ## Approach
 Twitter has two major APIs. A Rest API and a Stream API. The rest API can be used effectively for mining out tweets and is easily integrable into R, however with one drawback. To collect data, twitter has a 15 requests per 15 minutes limit [1], which in no way can be used to accumulate a million records without having multiple nodes with different keys making requests simultaneously. Therefore I decided to start writing a NodeJS script which would connect to twitter’s streaming API and help me collect data in real time. The responses needed to be unique as well because identical tweets would just be added noise in my analysis and take up unnecessary storage space. 
+
 Once data was downloaded, I decided to filter out the fields of importance from it using map reduce. A Map Reduce job usually splits the input data-set into independent chunks which are processed by the map tasks in a completely parallel manner. The framework sorts the outputs of the maps, which are then input to the reduce tasks. Typically both the input and the output of the job are stored in a file-system. The framework takes care of scheduling tasks, monitoring them and re-executes the failed tasks [2]. 
+
 Map Reduce can be applied to a number of different design patterns. Be it Filtering or Summarizations, Joins or Data Organizations all can be made simple by using such patterns. Following the book Map Reduce Patterns by Donald Miner [3] I was able to write a map reduce filtering script in both Mongo and Hadoop using Pig! Although I ended up using only the Mongo one because of my data was in Mongo aswell, both scripts are usable for the task except the data will need to be imported to HDFS for Pig. I have provided both scripts in the TMSA>scripts folder. Once map reduce was complete, using mongo scripts the data was exported into a CSV and ready for R analysis. 
+
 Polarity analysis is classifying the polarity of a given text at the document, sentence, or feature/aspect level—whether the expressed opinion in a document, a sentence or an entity feature/aspect is positive, negative, or neutral.[4] For any such sentiment analysis, text needs to be converted in to numbers which a machine can understand. Thus lower casing, removing stop words, tokenizing all are processes which need to be done then. For the stop words, because this was for twitter feeds, which contains jargon and slangs, I created a stop words corpus of common words from the English language, Snowball corpus, terrier corpus and the minimal corpus. One can now gauge the polarity of text based on positive/negative dictionaries and create relevant plots. I used Bayesian classifier to learn about sentiments from a learner list and then applied the classifier to the tweets and analyzed the results.
 
 ## Instructions
@@ -66,7 +69,7 @@ Instructions to run the complete program:
 * The Twitter Streaming API is configured to save data in a mongo db running on localhost on port 27017. For different settings, configure it accordingly
 
 ## References
-[1] Twitter API Rate Limits. https://dev.twitter.com/rest/public/rate-limiting
-[2] Hadoop. Map Reduce Tutorial. https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html.
-[3] Miner. Donald. Map Reduce Patterns http://barbie.uta.edu/ jli/Resources/MapReduce&Hadoop/MapReduce%20De
-[4] Sentiment Analysis. Wikipedia. https://en.wikipedia.org/wiki/Sentiment_analysis.
+[1] Twitter API Rate Limits. https://dev.twitter.com/rest/public/rate-limiting \n
+[2] Hadoop. Map Reduce Tutorial. https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html. \n
+[3] Miner. Donald. Map Reduce Patterns http://barbie.uta.edu/jli/Resources/MapReduce&Hadoop/MapReduce%20De \n
+[4] Sentiment Analysis. Wikipedia. https://en.wikipedia.org/wiki/Sentiment_analysis. \n
