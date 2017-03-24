@@ -1,0 +1,7 @@
+tweets = LOAD 'tweets.csv' USING PigStorage(',') AS (_id:int,created_at:chararray,id:double,id_str:chararray,text:chararray,display_text_range:chararray,source:chararray,truncated:charrarray,in_reply_to_status_id:charray,in_reply_to_status_id_str:charray,in_reply_to_user_id:charray,in_reply_to_user_id_str:charray,in_reply_to_screen_name:charray,geo:charray,coordinates:charray,place:charray,contributors:charray,is_quote_status:charray,retweet_count:charray,favorite_count:charray,favorited:charray,retweeted:charray,filter_level:charray,lang:charray,timestamp_ms:charray);
+
+tweetstext = FOREACH tweets GENERATE driverId, eventTime, eventType;
+
+DESCRIBE tweetstext;
+
+STORE tweetstext INTO 'tweetsMR' using PigStorage(',');

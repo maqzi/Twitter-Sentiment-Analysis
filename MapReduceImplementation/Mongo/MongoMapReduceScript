@@ -1,0 +1,9 @@
+######## MONGO MAP REDUCE ##########
+
+
+function map(){ emit(this.id, this.text)}
+
+function reduce(key, value){return value.join()}
+
+db.tweetsStream.mapReduce(map, reduce, {out:"MRTweetsText"});
+

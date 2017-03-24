@@ -58,11 +58,13 @@ Instructions to run the complete program:
 	c. Execute the script to create the wordcloud in the TMSA>output folder named: wordcloud.pdf  
   
   
-* I have included my dataset from Step 1 through 3 in the TMSA>data folder.  
-* I have also included the complete dataset recorded using the Twitter Streaming API in the TMSA>data folder.  
+* I have NOT included my dataset from Step 1 through 3 in the TMSA>data folder. It is available on request.
+* I have  NOT included the complete dataset recorded using the Twitter Streaming API in the TMSA>data folder. It is available on request. 
+* I have NOT included the compiled sentiment polarity training list "Sentiment_Analysis_POSNEG_Dataset.csv" in TMSA>classifierlists. It is available on request.
 * The script to export complete data set can also be found inside the scripts>MongoExport text file.  
 * Incase of a permissions error on the twitter streaming api, create a twitter app and use your own keys.  
-  
+* I have removed my PreprocessedData.csv and PolarityAnalysis.csv from TMSA>output folder. 
+* TMSA = Twitter Mining and Sentiment Analysis. I have used an abbreviation everywhere. Assume root directory name if you clone/fork.
   
 ## Addendum:
 * Make sure the path is set properly up till the folder TMSA for e.g. /home/munaf/NYU_BD/individualProj/TMSA/  
