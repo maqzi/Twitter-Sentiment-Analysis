@@ -60,7 +60,10 @@ Instructions to run the complete program:
   
 * I have NOT included my dataset from Step 1 through 3 in the TMSA>data folder. It is available on request.
 * I have  NOT included the complete dataset recorded using the Twitter Streaming API in the TMSA>data folder. It is available on request. 
+<<<<<<< HEAD
 * I have NOT included the compiled sentiment polarity training list "Sentiment_Analysis_POSNEG_Dataset.csv" in TMSA>classifierlists. It is available on request.
+=======
+>>>>>>> 18161a86f9ad3ef5493154b2fd6e1ba6dfd2a19d
 * The script to export complete data set can also be found inside the scripts>MongoExport text file.  
 * Incase of a permissions error on the twitter streaming api, create a twitter app and use your own keys.  
 * I have removed my PreprocessedData.csv and PolarityAnalysis.csv from TMSA>output folder. 
