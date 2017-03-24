@@ -19,57 +19,57 @@ Polarity analysis is classifying the polarity of a given text at the document, s
 ## Instructions
 Instructions to run the complete program:
 
-1. Get Data from Twitter API, save it in a MongoDB using TwitterAPIStream.js. (Note: can take upto 9 hours)
-	a. Run MongoServer.
-	b. Make sure you have NodeJS installed. get it on ubuntu using: sudo apt-get install nodejs
-	c. Make sure you have node package manager installed. get it using: sudo apt-get install npm
-	d. Navigate to folder TMSA>twitterAPI and run javascript in terminal using: node TwitterAPIStream.js
-	e. Program will run indefinitely searching for tweets around the world with the word: 'trump'
-	f. It will run till a million tweets have been downloaded and saved into a mongo collection called 'tweetsStream' in database 'Individ_TMSA'
-
-2. Filter Tweets using MapReduce in MongoDB.
-	a. Start mongo shell in terminal using: mongo
-	b. Use the Database called Individ_TMSA using: use Individ_TMSA
-	c. Type in the Map Reduce Script present in TMSA>MapReduceImplementation>Mongo folder
-	d. A new collection called 'MRTweetsText' will be created
-	e. check using: show collections
-	f. Quit mongo shell using: exit
-
-3. Type in the scripts>MongoExport script (# Export Map Reduce Filtered Tweets Only) in the bash terminal changing the output path as per your system. Set the output path for exported csv to be the TMSA>data folder.
-
-4. Loading & Preprocessing. (Note: can take upto an hour)
-	a. Run R Studio and open the script TMSA>load>Load&Preprocess.R
-	b. Change the working directory path in line 31
-	c. Execute script to create, in the TMSA>output folder, the file: 'Preprocessed.csv'
-
-5. Processing Data. (Note: can take upto 10 hours)
-	a. Run R Studio and open the script TMSA>scripts>Processing.R
-	b. Set the working directory path in line 89
-	c. Execute the script to create in the TMSA>output folder, the file: PolarityAnalysis.csv
-
-6. Plotting Polarity Results.
-	a. Run R Studio and open the script TMSA>scripts>PlotResults.R
-	b. Set the working directory path in line 8
-	c. Execute the script to create the ggplot in the TMSA>output folder named: polarity.pdf
-
-7. Creating WordCloud.
-	a. Run R Studio and open the script TMSA>scripts>WordCloud.R
-	b. Set the working directory path in line 35
-	c. Execute the script to create the wordcloud in the TMSA>output folder named: wordcloud.pdf
-
-
-* I have included my dataset from Step 1 through 3 in the TMSA>data folder.
-* I have also included the complete dataset recorded using the Twitter Streaming API in the TMSA>data folder.
-* The script to export complete data set can also be found inside the scripts>MongoExport text file.
-* Incase of a permissions error on the twitter streaming api, create a twitter app and use your own keys.
-
-
+1. Get Data from Twitter API, save it in a MongoDB using TwitterAPIStream.js. (Note: can take upto 9 hours)  
+	a. Run MongoServer  
+	b. Make sure you have NodeJS installed. get it on ubuntu using: sudo apt-get install nodejs  
+	c. Make sure you have node package manager installed. get it using: sudo apt-get install npm  
+	d. Navigate to folder TMSA>twitterAPI and run javascript in terminal using: node TwitterAPIStream.js  
+	e. Program will run indefinitely searching for tweets around the world with the word: 'trump'  
+	f. It will run till a million tweets have been downloaded and saved into a mongo collection called 'tweetsStream' in database 'Individ_TMSA'  
+  
+2. Filter Tweets using MapReduce in MongoDB.  
+	a. Start mongo shell in terminal using: mongo  
+	b. Use the Database called Individ_TMSA using: use Individ_TMSA  
+	c. Type in the Map Reduce Script present in TMSA>MapReduceImplementation>Mongo folder  
+	d. A new collection called 'MRTweetsText' will be created  
+	e. check using: show collections  
+	f. Quit mongo shell using: exit  
+  
+3. Type in the scripts>MongoExport script (# Export Map Reduce Filtered Tweets Only) in the bash terminal changing the output path as per your system. Set the output path for exported csv to be the TMSA>data folder.  
+  
+4. Loading & Preprocessing. (Note: can take upto an hour)  
+	a. Run R Studio and open the script TMSA>load>Load&Preprocess.R  
+	b. Change the working directory path in line 31  
+	c. Execute script to create, in the TMSA>output folder, the file: 'Preprocessed.csv'  
+  
+5. Processing Data. (Note: can take upto 10 hours)  
+	a. Run R Studio and open the script TMSA>scripts>Processing.R  
+	b. Set the working directory path in line 89  
+	c. Execute the script to create in the TMSA>output folder, the file: PolarityAnalysis.csv  
+  
+6. Plotting Polarity Results.  
+	a. Run R Studio and open the script TMSA>scripts>PlotResults.R  
+	b. Set the working directory path in line 8  
+	c. Execute the script to create the ggplot in the TMSA>output folder named: polarity.pdf  
+  
+7. Creating WordCloud.  
+	a. Run R Studio and open the script TMSA>scripts>WordCloud.R  
+	b. Set the working directory path in line 35  
+	c. Execute the script to create the wordcloud in the TMSA>output folder named: wordcloud.pdf  
+  
+  
+* I have included my dataset from Step 1 through 3 in the TMSA>data folder.  
+* I have also included the complete dataset recorded using the Twitter Streaming API in the TMSA>data folder.  
+* The script to export complete data set can also be found inside the scripts>MongoExport text file.  
+* Incase of a permissions error on the twitter streaming api, create a twitter app and use your own keys.  
+  
+  
 ## Addendum:
-* Make sure the path is set properly up till the folder TMSA for e.g. /home/munaf/NYU_BD/individualProj/TMSA/
-* The Twitter Streaming API is configured to save data in a mongo db running on localhost on port 27017. For different settings, configure it accordingly
+* Make sure the path is set properly up till the folder TMSA for e.g. /home/munaf/NYU_BD/individualProj/TMSA/  
+* The Twitter Streaming API is configured to save data in a mongo db running on localhost on port 27017. For different settings, configure it accordingly  
 
 ## References
-[1] Twitter API Rate Limits. https://dev.twitter.com/rest/public/rate-limiting \n
-[2] Hadoop. Map Reduce Tutorial. https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html. \n
-[3] Miner. Donald. Map Reduce Patterns http://barbie.uta.edu/jli/Resources/MapReduce&Hadoop/MapReduce%20De \n
-[4] Sentiment Analysis. Wikipedia. https://en.wikipedia.org/wiki/Sentiment_analysis. \n
+[1] Twitter API Rate Limits. https://dev.twitter.com/rest/public/rate-limiting  
+[2] Hadoop. Map Reduce Tutorial. https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html.  
+[3] Miner. Donald. Map Reduce Patterns http://barbie.uta.edu/jli/Resources/MapReduce&Hadoop/MapReduce%20De  
+[4] Sentiment Analysis. Wikipedia. https://en.wikipedia.org/wiki/Sentiment_analysis.  
